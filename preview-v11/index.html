@@ -3,43 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TR Design — טופולסקי-רצף · Preview v11</title>
+<title>TR Design — טופולסקי-רצף · עמודי שירות</title>
 <style>
   :root { --gold:#DABC82; --gold-dark:#B8995C; --bg:#FFFFFF; --ink:#1A1A1A; --muted:#565656; --border:#EEE3CC; --soft:#FAF6EC; }
   *, *::before, *::after { box-sizing: border-box; }
-  body { margin: 0; font-family: 'Heebo','Assistant','Rubik','Segoe UI',Arial,sans-serif; background: var(--bg); color: #262626; line-height: 1.7; direction: rtl; padding-bottom: 60px; }
-  .wrap { max-width: 1180px; margin: 0 auto; padding: 38px 22px; }
-  .top { background: linear-gradient(135deg, #1A1A1A 0%, #2A2520 100%); color: #FFFFFF; padding: 48px 36px; border-radius: 16px; margin-bottom: 40px; box-shadow: 0 12px 32px rgba(26,26,26,.16); position: relative; overflow: hidden; }
-  .top::after { content: ""; position: absolute; top: -50px; left: -50px; width: 260px; height: 260px; background: radial-gradient(circle, rgba(218,188,130,.32) 0%, transparent 70%); pointer-events: none; }
-  .top h1 { font-size: 36px; font-weight: 800; margin: 0 0 14px; color: #FFFFFF; letter-spacing: -0.4px; position: relative; z-index: 1; }
-  .top .lead { font-size: 17px; color: #F5F0E5; max-width: 820px; margin: 0 0 24px; position: relative; z-index: 1; line-height: 1.65; }
-  .top .badges { display: flex; flex-wrap: wrap; gap: 10px; position: relative; z-index: 1; }
-  .top .badge { display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; background-color: rgba(255,255,255,.10); border: 1px solid rgba(218,188,130,.45); border-radius: 50px; font-size: 13px; font-weight: 700; color: #FFFFFF; }
-  .top .badge strong { color: var(--gold); }
-  .top .badge.latest { background-color: var(--gold); color: var(--ink); border-color: var(--gold); }
-  .section-title { font-size: 24px; font-weight: 800; color: var(--ink); margin: 0 0 18px; padding: 0 0 14px; border-bottom: 1.5px solid var(--gold); display: flex; align-items: center; gap: 14px; letter-spacing: -0.2px; }
-  .section-title::before { content: ""; display: inline-block; width: 5px; height: 32px; background: var(--gold); border-radius: 2px; flex-shrink: 0; }
-  .pages-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 56px; }
-  .page-card { background: #FFFFFF; border: 1px solid var(--border); border-right: 4px solid var(--gold); border-radius: 14px; padding: 28px 30px; box-shadow: 0 2px 12px rgba(26,26,26,.03); transition: transform .35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow .35s cubic-bezier(0.4, 0, 0.2, 1), border-color .35s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; color: inherit; display: block; }
+  body { margin: 0; font-family: 'Heebo','Assistant','Rubik','Segoe UI',Arial,sans-serif; background: var(--bg); color: #262626; line-height: 1.7; direction: rtl; padding: 38px 0 60px; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 22px; }
+
+  .head { text-align: center; padding: 0 0 36px; border-bottom: 1.5px solid var(--gold); margin-bottom: 40px; position: relative; }
+  .head::before { content: ""; position: absolute; bottom: -7px; left: 50%; transform: translateX(-50%); width: 60px; height: 12px; background: var(--gold); border-radius: 12px; }
+  .head .brand-tr { display: inline-block; font-family: 'Heebo','Assistant',Arial,sans-serif; font-size: 48px; font-weight: 800; color: var(--gold); line-height: 1; letter-spacing: 2px; margin: 0 0 8px; }
+  .head h1 { font-family: 'Heebo','Assistant',Arial,sans-serif; font-size: 26px; font-weight: 800; color: var(--ink); margin: 0 0 8px; letter-spacing: -0.3px; }
+  .head p { font-size: 15px; color: var(--muted); margin: 0; }
+
+  .featured-card { background: linear-gradient(135deg, #1A1A1A 0%, #2A2520 100%); color: #FFFFFF; padding: 36px 38px; border-radius: 16px; margin: 0 0 18px; box-shadow: 0 10px 30px rgba(26,26,26,.14); position: relative; overflow: hidden; text-decoration: none; display: block; transition: transform .35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow .35s cubic-bezier(0.4, 0, 0.2, 1); }
+  .featured-card::after { content: ""; position: absolute; top: -40px; left: -40px; width: 220px; height: 220px; background: radial-gradient(circle, rgba(218,188,130,.28) 0%, transparent 70%); pointer-events: none; }
+  .featured-card:hover { transform: translateY(-4px); box-shadow: 0 18px 44px rgba(26,26,26,.20); }
+  .featured-card-label { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; background-color: var(--gold); color: var(--ink); border-radius: 50px; font-size: 12px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; margin: 0 0 14px; }
+  .featured-card-h { position: relative; z-index: 1; font-family: 'Heebo','Assistant',Arial,sans-serif; font-size: 26px; font-weight: 800; color: #FFFFFF; margin: 0 0 8px; }
+  .featured-card-url { position: relative; z-index: 1; font-size: 13px; color: var(--gold); margin: 0 0 16px; font-weight: 600; word-break: break-all; }
+  .featured-card-desc { position: relative; z-index: 1; font-size: 15px; color: #F5F0E5; margin: 0 0 18px; line-height: 1.65; max-width: 720px; }
+  .featured-card-cta { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; background: var(--gold); color: var(--ink); border-radius: 50px; font-size: 14px; font-weight: 800; transition: background-color .25s cubic-bezier(0.4, 0, 0.2, 1); }
+  .featured-card:hover .featured-card-cta { background: #FFFFFF; }
+  .featured-card-cta::after { content: "←"; font-size: 16px; }
+
+  .pages-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 40px; }
+  .page-card { background: #FFFFFF; border: 1px solid var(--border); border-right: 4px solid var(--gold); border-radius: 14px; padding: 26px 28px; box-shadow: 0 2px 12px rgba(26,26,26,.03); transition: transform .35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow .35s cubic-bezier(0.4, 0, 0.2, 1), border-color .35s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; color: inherit; display: block; }
   .page-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,26,26,.08); border-color: var(--gold-dark); }
-  .page-card-eyebrow { font-size: 12px; font-weight: 700; color: var(--gold-dark); letter-spacing: 0.5px; margin: 0 0 6px; text-transform: uppercase; }
-  .page-card-h { font-size: 22px; font-weight: 800; color: var(--ink); margin: 0 0 8px; }
-  .page-card-url { font-size: 13px; color: var(--gold-dark); margin: 0 0 14px; font-weight: 600; word-break: break-all; }
-  .page-card-stats { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 14px; }
-  .page-card-stats span { font-size: 12px; padding: 4px 10px; background: var(--soft); border: 1px solid var(--border); border-radius: 50px; color: var(--gold-dark); font-weight: 700; }
-  .page-card-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 700; color: var(--gold-dark); }
-  .page-card-cta::after { content: "←"; font-size: 17px; }
-  .notes { background: var(--soft); border: 1px solid var(--border); border-right: 4px solid var(--gold); border-radius: 12px; padding: 24px 28px; margin: 0 0 30px; }
-  .notes h3 { font-size: 17px; font-weight: 800; color: var(--ink); margin: 0 0 10px; }
-  .notes ul { margin: 0; padding: 0 18px 0 0; }
-  .notes li { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 4px; }
-  .notes strong { color: var(--ink); }
+  .page-card-num { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background-color: var(--gold); color: var(--ink); border-radius: 50%; font-family: 'Heebo','Assistant',Arial,sans-serif; font-size: 14px; font-weight: 800; margin: 0 0 12px; }
+  .page-card-h { font-size: 21px; font-weight: 800; color: var(--ink); margin: 0 0 8px; }
+  .page-card-url { font-size: 13px; color: var(--gold-dark); margin: 0 0 12px; font-weight: 600; word-break: break-all; }
+  .page-card-desc { font-size: 14px; color: var(--muted); margin: 0 0 14px; line-height: 1.55; }
+  .page-card-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--gold-dark); }
+  .page-card-cta::after { content: "←"; font-size: 16px; }
+
   .foot { text-align: center; color: var(--muted); font-size: 13px; padding: 24px 0 4px; }
   .foot strong { color: var(--ink); }
+
   @media (max-width: 820px) {
-    .wrap { padding: 22px 14px; }
-    .top { padding: 30px 22px; }
-    .top h1 { font-size: 26px; }
+    body { padding: 22px 0 60px; }
+    .wrap { padding: 0 14px; }
+    .head .brand-tr { font-size: 40px; }
+    .head h1 { font-size: 22px; }
+    .featured-card { padding: 28px 22px; }
+    .featured-card-h { font-size: 22px; }
     .pages-grid { grid-template-columns: 1fr; }
   }
 </style>
@@ -47,80 +54,56 @@
 <body>
 <div class="wrap">
 
-  <div class="top">
-    <h1>TR Design — טופולסקי-רצף · Preview v11</h1>
-    <p class="lead">4 עמודי שירות מעוצבים מחדש תחת <strong>/flooring/</strong> — שם החברה תוקן באופן עקבי ל-<strong>"TR Design — טופולסקי-רצף"</strong> בכל המקומות (H2 של "למה לבחור", שם בלוק האודות, פתיחת ה-Offer, ותיאור היסטוריית החברה). מבוסס על תשתית v10 (חיצי SVG, סליידר מתקדם, רקע לבן, ללא הבטחות זמן, "פגישת ייעוץ חינם" נשמר).</p>
-    <div class="badges">
-      <span class="badge latest">⮕ הגרסה האחרונה — v11</span>
-      <span class="badge"><strong>שם חברה</strong> אחיד בכל מקום</span>
-      <span class="badge"><strong>37</strong> תמונות מקוריות</span>
-      <span class="badge"><strong>3</strong> JSON-LD לכל עמוד</span>
-    </div>
+  <div class="head">
+    <p class="brand-tr" aria-hidden="true">TR</p>
+    <h1>TR Design — טופולסקי-רצף</h1>
+    <p>עמודי שירות הריצוף והחיפוי</p>
   </div>
 
-  <h2 class="section-title">4 עמודי השירות (v11)</h2>
+  <a class="featured-card" href="sample-flooring-parent.html">
+    <span class="featured-card-label">עמוד אב · ראשי</span>
+    <p class="featured-card-h">ריצוף וחיפוי איטלקי — 4 קטגוריות תחת קורת גג אחת</p>
+    <p class="featured-card-url">tr-design.co.il/flooring/</p>
+    <p class="featured-card-desc">עמוד הכניסה לקטגוריית הריצוף. סקירה כללית של 4 הקטגוריות שלנו עם ניווט לכל אחת מהן.</p>
+    <span class="featured-card-cta">פתיחת עמוד האב</span>
+  </a>
+
   <div class="pages-grid">
     <a class="page-card" href="sample-interior-flooring.html">
-      <p class="page-card-eyebrow">ילד 1 · ריצוף פנים</p>
-      <p class="page-card-h">ריצוף פנים — עיצוב איטלקי לכל חלל בבית</p>
+      <span class="page-card-num">1</span>
+      <p class="page-card-h">ריצוף פנים</p>
       <p class="page-card-url">tr-design.co.il/flooring/interior-flooring/</p>
-      <div class="page-card-stats">
-        <span>8 תמונות</span>
-        <span>3 שקופיות בסליידר</span>
-        <span>שם מלא בכל מקום</span>
-      </div>
-      <span class="page-card-cta">פתיחת התצוגה</span>
+      <p class="page-card-desc">מגה-אריחים בעיצוב איטלקי לסלון, חדר רחצה, מטבח וחללי פנים נוספים.</p>
+      <span class="page-card-cta">פתיחת העמוד</span>
     </a>
 
     <a class="page-card" href="sample-outdoor-flooring.html">
-      <p class="page-card-eyebrow">ילד 2 · ריצוף חוץ</p>
-      <p class="page-card-h">ריצוף חוץ — לחצרות, מרפסות וגינות</p>
+      <span class="page-card-num">2</span>
+      <p class="page-card-h">ריצוף חוץ</p>
       <p class="page-card-url">tr-design.co.il/flooring/outdoor-flooring/</p>
-      <div class="page-card-stats">
-        <span>6 תמונות</span>
-        <span>3 שקופיות בסליידר</span>
-        <span>שם מלא בכל מקום</span>
-      </div>
-      <span class="page-card-cta">פתיחת התצוגה</span>
+      <p class="page-card-desc">אריחי פורצלן 2 ס״מ עם דירוג אנטי-החלקה לחצרות, מרפסות וגינות.</p>
+      <span class="page-card-cta">פתיחת העמוד</span>
     </a>
 
     <a class="page-card" href="sample-wall-cladding.html">
-      <p class="page-card-eyebrow">ילד 3 · חיפוי קירות</p>
-      <p class="page-card-h">חיפוי קירות — מראה איטלקי במגה-אריחים</p>
+      <span class="page-card-num">3</span>
+      <p class="page-card-h">חיפוי קירות</p>
       <p class="page-card-url">tr-design.co.il/flooring/wall-cladding/</p>
-      <div class="page-card-stats">
-        <span>11 תמונות</span>
-        <span>6 שקופיות בסליידר</span>
-        <span>שם מלא בכל מקום</span>
-      </div>
-      <span class="page-card-cta">פתיחת התצוגה</span>
+      <p class="page-card-desc">מגה-אריחים עד 1.5×3 מ׳ לסלון, חדרי רחצה, מטבחים ופרויקטים מסחריים.</p>
+      <span class="page-card-cta">פתיחת העמוד</span>
     </a>
 
     <a class="page-card" href="sample-mosaic-for-pools.html">
-      <p class="page-card-eyebrow">ילד 4 · פסיפס לבריכות</p>
-      <p class="page-card-h">פסיפס לבריכות — Belgrave · Riverton · GE-Nature</p>
+      <span class="page-card-num">4</span>
+      <p class="page-card-h">פסיפס לבריכות</p>
       <p class="page-card-url">tr-design.co.il/flooring/mosaic-for-pools/</p>
-      <div class="page-card-stats">
-        <span>12 תמונות</span>
-        <span>7 שקופיות בסליידר</span>
-        <span>שם מלא בכל מקום</span>
-      </div>
-      <span class="page-card-cta">פתיחת התצוגה</span>
+      <p class="page-card-desc">קולקציות Belgrave, Riverton ו-GE-Nature — עמידות בכלור ומגוון גוונים.</p>
+      <span class="page-card-cta">פתיחת העמוד</span>
     </a>
   </div>
 
-  <div class="notes">
-    <h3>הערות לסקירה</h3>
-    <ul>
-      <li><strong>שם החברה עכשיו אחיד</strong>: "TR Design — טופולסקי-רצף" מופיע באופן עקבי בכל 4 העמודים — בכותרת "למה לבחור ב-", בלוק האודות (גם השם וגם תיאור היסטוריית החברה), פתיחת ה-Offer (בעמוד ריצוף פנים), ובכל בלוקי ה-JSON-LD.</li>
-      <li><strong>Wordmark "TR" נשמר</strong>: סימן ה-"TR" הגדול בזהב בבלוק האודות נשמר כסימן מותג ויזואלי. השם המלא נמצא לידו.</li>
-      <li><strong>כל יתר תכני v10 נשמרו</strong>: 37 תמונות מקוריות (כל אחת פעם אחת), חיצי SVG בסליידר, פס גלילה נסתר, נקודות ניווט, רקע לבן, 8 שאלות FAQ לכל עמוד, סעיפי "מה כלול" + "למה לבחור".</li>
-      <li><strong>v1-v10 לא נגעו</strong>: כל הקבצים מהגרסאות הקודמות נשמרו בדיוק כפי שהיו.</li>
-    </ul>
-  </div>
-
   <div class="foot">
-    <p><strong>TR Design — טופולסקי-רצף · Preview v11</strong> · שם חברה אחיד · בנוי על תשתית v10 · ללא JavaScript · תאום מלא ל-PLAN.md</p>
+    <p><strong>TR Design — טופולסקי-רצף</strong> · 5 עמודי שירות</p>
   </div>
 
 </div>
